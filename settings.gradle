@@ -1,1 +1,11 @@
+//pluginManagement {
+//    repositories {
+//        mavenLocal()
+//        maven {
+//            url 'https://nexus.jmix.io/repository/public'
+//        }
+//        gradlePluginPortal()
+//    }
+//}
+
 rootProject.name = 'hello'
