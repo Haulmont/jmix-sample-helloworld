@@ -31,7 +31,6 @@ import java.util.Objects;
 @UiDescriptor("user-edit.xml")
 @EditedEntityContainer("userDc")
 @Route(value = "users/edit", parentPrefix = "users")
-@LoadDataBeforeShow
 public class UserEdit extends StandardEditor<User> {
 
     @Autowired

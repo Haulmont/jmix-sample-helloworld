@@ -23,7 +23,6 @@ import io.jmix.ui.screen.*;
 @UiController("hello_User.browse")
 @UiDescriptor("user-browse.xml")
 @LookupComponent("usersTable")
-@LoadDataBeforeShow
 @Route("users")
 public class UserBrowse extends StandardLookup<User> {
 }
