@@ -23,9 +23,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Locale;
 
 @UiController("hello_LoginScreen")
-@UiDescriptor("hello-login-screen.xml")
+@UiDescriptor("login-screen.xml")
 @Route(path = "login", root = true)
-public class HelloLoginScreen extends Screen {
+public class LoginScreen extends Screen {
 
     @Autowired
     private TextField<String> usernameField;
