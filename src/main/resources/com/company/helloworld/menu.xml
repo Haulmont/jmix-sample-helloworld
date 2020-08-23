@@ -3,6 +3,9 @@
 
     <menu id="application" caption="msg://com.company.helloworld/menu.application" insertBefore="security">
         <item screen="hello_User.browse" caption="msg://com.company.helloworld.screen.user/UserBrowse.caption"/>
+        <item screen="hello_Bar.browse" caption="msg://com.company.helloworld.screen.bar/barBrowse.caption"/>
+        <item screen="hello_Foo.browse" caption="msg://com.company.helloworld.screen.foo/fooBrowse.caption"/>
+        <item screen="hello_Foo.datagrid" caption="msg://com.company.helloworld.screen.foo/fooDataGridBrowse.caption"/>
     </menu>
 
 </menu-config>

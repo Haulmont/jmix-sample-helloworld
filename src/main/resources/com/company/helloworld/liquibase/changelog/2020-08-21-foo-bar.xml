@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="hello">
+
+        <createTable tableName="HELLO_BAR">
+            <column name="ID" type="uuid">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar(255)"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="2" author="hello">
+
+        <createTable tableName="HELLO_FOO">
+            <column name="ID" type="uuid">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar(255)"/>
+            <column name="BAR_ID" type="uuid">
+                <constraints foreignKeyName="FK_FOO_BAR" references="HELLO_BAR(ID)"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

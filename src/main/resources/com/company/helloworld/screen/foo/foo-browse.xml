@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        caption="msg://fooBrowse.caption"
+        focusComponent="foosTable">
+    <data readOnly="true">
+        <collection id="foosDc"
+                    class="com.company.helloworld.entity.Foo">
+            <fetchPlan extends="_local">
+                <property name="bar" fetchPlan="_instance_name"/>
+            </fetchPlan>
+            <loader id="foosDl">
+                <query>
+                    <![CDATA[select e from hello_Foo e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true">
+        <groupTable id="foosTable"
+                    width="100%"
+                    dataContainer="foosDc" editable="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="bar" editable="true"/>
+            </columns>
+            <pagination/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="foosTable.create"/>
+                <button id="editBtn" action="foosTable.edit"/>
+                <button id="removeBtn" action="foosTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

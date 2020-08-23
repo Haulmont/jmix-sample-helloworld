@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://fooEdit.caption"
+        focusComponent="form">
+    <data>
+        <instance id="fooDc"
+                  class="com.company.helloworld.entity.Foo">
+            <fetchPlan extends="_local">
+                <property name="bar" fetchPlan="_instance_name"/>
+            </fetchPlan>
+            <loader/>
+        </instance>
+        <collection id="barsDc" class="com.company.helloworld.entity.Bar">
+            <fetchPlan extends="_instance_name"/>
+            <loader>
+                <query>select b from hello_Bar b order by b.name</query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true">
+        <form id="form" dataContainer="fooDc">
+            <column width="350px">
+                <textField id="nameField" property="name"/>
+                <field property="bar" id="barField" caption="Bar field"/> <!--optionsContainer="barsDc"-->
+                <entityPicker id="barPickerField" property="bar" caption="Bar entityPicker">
+<!--                    <actions>-->
+<!--                        <action id="lookup" type="entity_lookup"/>-->
+<!--                        <action id="clear" type="entity_clear"/>-->
+<!--                    </actions>-->
+                </entityPicker>
+                <entityComboBox id="barComboBox" property="bar" caption="Bar comboBox" optionsContainer="barsDc"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
