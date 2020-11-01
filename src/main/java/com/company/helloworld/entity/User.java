@@ -16,11 +16,11 @@
 
 package com.company.helloworld.entity;
 
-import io.jmix.core.JmixEntity;
 import io.jmix.core.entity.BaseUser;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.entity.annotation.SystemLevel;
 import io.jmix.core.metamodel.annotation.InstanceName;
+import io.jmix.core.metamodel.annotation.JmixEntity;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -29,9 +29,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.UUID;
 
+@JmixEntity
 @Entity(name = "hello_User")
 @Table(name = "HELLO_USER")
-public class User implements JmixEntity, BaseUser {
+public class User implements BaseUser {
 
     @Id
     @Column(name = "ID")
@@ -150,11 +151,6 @@ public class User implements JmixEntity, BaseUser {
     @Override
     public boolean isEnabled() {
         return enabled;
-    }
-
-    @Override
-    public String getKey() {
-        return username;
     }
 
     @InstanceName
